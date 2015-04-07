@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:id="@+id/txtusername"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="57dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editusername"
+        android:layout_alignBottom="@+id/txtusername"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/txtusername"
+        android:layout_toEndOf="@+id/txtusername" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:id="@+id/txtpassword"
+        android:layout_below="@+id/txtusername"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editpwd"
+        android:layout_alignBottom="@+id/txtpassword"
+        android:layout_alignLeft="@+id/editusername"
+        android:layout_alignStart="@+id/editusername"
+        android:layout_alignRight="@+id/editusername"
+        android:layout_alignEnd="@+id/editusername" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up/Register"
+        android:id="@+id/btnusertype"
+        android:onClick="register"
+        android:layout_below="@+id/txtpassword"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="156dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GetDetails"
+        android:id="@+id/btndetails"
+        android:onClick="Details"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="59dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:onClick="Clear"
+        android:id="@+id/btnclear"
+        android:layout_alignTop="@+id/btnusertype"
+        android:layout_toLeftOf="@+id/btnusertype"
+        android:layout_toStartOf="@+id/btnusertype" />
+
+</RelativeLayout>
