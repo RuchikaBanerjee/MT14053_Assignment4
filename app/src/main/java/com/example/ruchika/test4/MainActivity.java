@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import retrofit.RestAdapter;
+
 public class MainActivity extends Activity {
 
     Button btnsignup;
@@ -67,7 +69,7 @@ public class MainActivity extends Activity {
         //usertype = ((RadioButton) findViewById(rg.getCheckedRadioButtonId())).getText().toString();
     }
 
-    public void register(View v) {
+    public void register(View v) throws Exception {
 
         getvalues();
         for (int i = 0; i < MainList.size(); i++){
@@ -83,9 +85,43 @@ public class MainActivity extends Activity {
             list.add(password);
             list.add(usertype);
             MainList.add(list);
-            Toast.makeText(getApplicationContext(),"Thanks for registering", Toast.LENGTH_SHORT).show();
-            Intent uploadfiles = new Intent(this, UploadFiles.class);
-            startActivity(uploadfiles);
+
+            //Toast.makeText(getApplicationContext(),"Thanks for registering", Toast.LENGTH_SHORT).show();
+            Thread thread = new Thread(new Runnable(){
+                @Override
+                public void run() {
+                    try {
+
+                        RestAdapter file = new RestAdapter.Builder()
+                                .setEndpoint("http://192.168.54.155:8080")
+                                .build();
+                        FileAPI file_test = file.create(FileAPI.class);
+                        String s = file_test.login(username,password);
+                        //String t = file_test.SendFile(s1);
+                        if(s.compareTo("banerjee")==0) {
+
+
+                            Intent files = new Intent(getApplicationContext(), UploadFiles.class);
+                            //String s = file_test.login("Ruchika ", "Banerjee");
+                            //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                            startActivity(files);
+                            //Toast.makeText(getApplicationContext(),"Login Successfull",Toast.LENGTH_LONG).show();
+
+                        }
+                        else{
+                            //Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_LONG).show();
+                        }
+                        //if(username.contentEquals("ruchi") )
+                        //.i("hellooooo",t);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            thread.start();
+
 
         }
 

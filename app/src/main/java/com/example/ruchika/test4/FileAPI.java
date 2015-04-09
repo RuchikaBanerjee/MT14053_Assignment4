@@ -16,12 +16,16 @@ public interface FileAPI {
 
     @FormUrlEncoded
     @POST("/login")
-    public Void login(@Field("ruchika") String username, @Field("banerjee") String pass);
+    public String login(@Field("name") String name, @Field("pwd") String pass);
 
     @GET("/file")
     public String getFileList();
-    
-    @GET("/postfile")
-    public String addFile(@Body String s);
+
+    @FormUrlEncoded
+    @POST("/postfile")
+    public String addFile(@Field("s") String s);
+
+    @POST("/sendfile")
+    public String SendFile(@Body String file );
 
 }

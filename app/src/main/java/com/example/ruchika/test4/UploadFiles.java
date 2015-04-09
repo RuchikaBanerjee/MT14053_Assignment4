@@ -85,6 +85,29 @@ public class UploadFiles extends Activity {
                 lv.setClickable(false);
                 String sele = textview.getText().toString();
                 Uri uri = Uri.parse(sele);
+                String path = uri.getPath();
+                System.out.println(uri.getPath());
+                /*uploadfiles obj = new uploadfiles();
+                try {
+                    obj.addtestfile("ooooopopo");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }*/
+               /* uploadfiles sendfile = null;
+                try {
+                    sendfile = new uploadfiles(new URI(uri.toString()));
+                    Log.i("hello","motuiiioioio");
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+
+                Log.i("hello","motu");
+                try {
+                    sendfile.addtestfile("open this file", uri);
+                    Log.i("hoekke","matana");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }*/
                 showPdf(uri);
             }
         });
